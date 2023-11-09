@@ -1,41 +1,156 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {{
+  if(num1 > num2){
+    return num1;
+  }else {
+    return num2;
+  }
+}}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(list) {
+  let temp = "";
+  console.log(list);
+  if(list.length === 0){
+    return null;
+  }else if(list.length === 1){
+    temp = list[0];
+    return temp;
+  }else{
+    for (let i = 0; i < list.length; i++) {
+      if(list[i].length > temp.length) {
+        temp = list[i];
+      }else if(list[i].length === temp.length){
+        continue;
+      }else{
+        continue;
+      }
+    }
+  }
+  return temp;
+}
 
+findLongestWord(words);
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(sumNum) {
+  let count = 0;
+  if(sumNum.length === 0){
+    return 0;
+  }else if(sumNum.length === 1){
+    count += sumNum[0];
+    return count;
+  }else{
+    for(let i = 0; i < sumNum.length; i++){
+      count += sumNum[i];
+    }
+  }
+  return count;
+}
 
-
+sumNumbers(numbers);
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sum(arrList) {
+  let count = 0;
+  for(let i = 0; i < arrList.length; i++){
+    if(typeof arrList[i] === "number"){
+      count += arrList[i];
+    }else if(typeof arrList[i] === "string"){
+      count += arrList[i].length;
+    }else if(typeof arrList[i] === "boolean"){
+      if(arrList[i] === true){
+        count += 1;
+      }else{
+        continue;
+      }
+    }else{
+      throw new Error("Error message goes here");
+    }
+  }
+  return count;
+}
 
+sum(mixedArr);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(avgNum) {
+  let count = 0;
+  if(avgNum.length === 0){
+    return null;
+  }else if(avgNum.length === 1){
+    count += avgNum[0];
+    return count;
+  }else{
+    for(let i = 0; i < avgNum.length; i++){
+      count += avgNum[i];
+    }
+  }
+  return count / avgNum.length;
+}
 
+averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrLength) {
+  let count = 0;
+  if(arrLength.length === 0){
+    return null;
+  }else if(arrLength.length === 1){
+    count += arrLength[0].length;
+    return count;
+  }else{
+    for(let i = 0; i < arrLength.length; i++){
+      count += arrLength[i].length;
+    }
+  }
+  return count / arrLength.length;
+}
+
+averageWordLength(wordsArr);
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr1 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(arrList) {
+  let count = 0;
+  if(arrList.length === 0){
+    return null;
+  }else{
+    for(let i = 0; i < arrList.length; i++){
+      if(typeof arrList[i] === "number"){
+        count += arrList[i];
+      }else if(typeof arrList[i] === "string"){
+        count += arrList[i].length;
+      }else if(typeof arrList[i] === "boolean"){
+        if(arrList[i] === true){
+          count += 1;
+        }else{
+          continue;
+        }
+      }else{
+        throw new Error("Error message goes here");
+      }
+    }
+  }
+  return count / arrList.length;
+}
+
+avg(mixedArr1);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +167,41 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(uniqueList) {
+  let uniqueArr = [];
+  if(uniqueList.length === 0){
+    return null;
+  }else {
+    for(let i = 0; i < uniqueList.length; i++){
+      if(!uniqueArr.includes(uniqueList[i])){
+        uniqueArr.push(uniqueList[i]);
+      }
+    }
+  }
+  return uniqueArr;
+}
 
-
+uniquifyArray(wordsUnique);
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordList, word) {
+  if(wordList.length === 0){
+    return null;
+  }else if(wordList.length === 1){
+    return true;
+  }else{
+    if(wordList.includes(word)){
+      return true;
+    }else {
+      return false;
+    }
+  }
+}
+
+doesWordExist(wordsFind, 'truth');
+doesWordExist(wordsFind, 'hello');
 
 
 
@@ -78,8 +220,24 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordList, word) {
+  let count = 0;
+  if(wordList === 0){
+    return 0;
+  }else if(!wordList.includes(word)){
+    return 0;
+  }else {
+    for(let i = 0; i < wordList.length; i++){
+      if(wordList[i] === word){
+        count++;
+      }
+    }
+  }
+  return count;
+}
 
+howManyTimes(wordsCount, 'matter');
+howManyTimes(wordsCount, 'hello');
 
 
 // Iteration #8: Bonus
@@ -106,7 +264,37 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+
+  let horizontalProduct = 0
+  let verticalProduct = 0
+
+  arr.forEach((element, i, arr) => {
+    element.forEach((number, index, array) => {
+    if (array[index + 3] !== undefined) {
+      let thisProduct = array[index] * array[index + 1] * array[index + 2] * array[index + 3]
+      if (thisProduct > horizontalProduct) {
+        horizontalProduct = thisProduct
+      }
+    }   
+    })
+  })
+
+  arr.forEach((element, i, arr) => {
+    element.forEach((number, index, array) => {
+      if (arr[i + 3] !== undefined) {
+      let thisProduct = arr[i][index] * arr[i + 1][index] * arr[i + 2][index] * arr[i + 3][index] 
+       if (thisProduct > verticalProduct) {
+         verticalProduct = thisProduct
+       }   
+      } 
+    })
+  })
+
+  return horizontalProduct > verticalProduct ? horizontalProduct : verticalProduct 
+}
+
+greatestProduct(matrix);
 
 
 
